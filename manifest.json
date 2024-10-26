@@ -1,0 +1,29 @@
+{
+	"dependencies": [],
+	"description": "stats looking better go brrr",
+	"extra": {
+		"godot": {
+			"authors": [
+				"kr1v"
+			],
+			"compatible_game_version": [
+			],
+			"compatible_mod_loader_version": [
+				"6.2.0"
+			],
+			"config_schema": {
+
+			},
+			"description_rich": "",
+			"image": null,
+			"incompatibilities": [],
+			"load_before": [],
+			"optional_dependencies": [],
+			"tags": []
+		}
+	},
+	"name": "bettergameover",
+	"namespace": "kr1v",
+	"version_number": "1.0.0",
+	"website_url": ""
+}

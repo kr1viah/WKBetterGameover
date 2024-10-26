@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds0eps0go7p4o"]
+
+[ext_resource type="Script" path="res://mods-unpacked/kr1v-bettergameover/runStats.gd" id="1_mfjrs"]
+[ext_resource type="PackedScene" uid="uid://d06hosi6ypfak" path="res://src/ui/game_over/stat.tscn" id="2_0ap0a"]
+[ext_resource type="Texture2D" uid="uid://d3jvp42d5f6vc" path="res://src/player/melee/melee.svg" id="3_v24g6"]
+[ext_resource type="Texture2D" uid="uid://ddafeutpjhlyf" path="res://src/ui/shop/multiShot.svg" id="4_o55hv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4bnf"]
+font_size = 18
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_faxj6"]
+line_spacing = -2.0
+font_size = 28
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qecwk"]
+font_size = 28
+font_color = Color(0.368627, 0.376471, 0.45098, 1)
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Stats" type="VBoxContainer"]
+offset_right = 924.0
+offset_bottom = 378.0
+theme_override_constants/separation = 0
+script = ExtResource("1_mfjrs")
+
+[node name="charRef" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_v24g6")
+
+[node name="upgradeRef" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="label" type="Label" parent="upgradeRef"]
+layout_mode = 2
+text = "9"
+label_settings = SubResource("LabelSettings_r4bnf")
+horizontal_alignment = 1
+
+[node name="texture" type="TextureRect" parent="upgradeRef"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_o55hv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="itemRef" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 0
+
+[node name="texture" type="TextureRect" parent="itemRef"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("4_o55hv")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="label" type="Label" parent="itemRef"]
+layout_mode = 2
+text = "9"
+label_settings = SubResource("LabelSettings_r4bnf")
+horizontal_alignment = 1
+
+[node name="stat3" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "time survived"
+stat = "totalTime"
+
+[node name="speedrunTime" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = -4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="speedrunTime"]
+unique_name_in_owner = true
+modulate = Color(0.368627, 0.376471, 0.45098, 1)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Panel2" type="Panel" parent="speedrunTime/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="speedrunLabel" type="Label" parent="speedrunTime/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "speedrun time:"
+label_settings = SubResource("LabelSettings_faxj6")
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="speedrunTime/HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="speedrunValue" type="Label" parent="speedrunTime/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(9:99:99.22)"
+label_settings = SubResource("LabelSettings_faxj6")
+
+[node name="recordText" type="Label" parent="speedrunTime/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+label_settings = SubResource("LabelSettings_qecwk")
+
+[node name="Panel3" type="Panel" parent="speedrunTime/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="damage" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "damage taken"
+stat = "totalDamageTaken"
+
+[node name="coins" parent="." instance=ExtResource("2_0ap0a")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "coins collected"
+stat = "totalCoins"
+
+[node name="stars" parent="." instance=ExtResource("2_0ap0a")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "stars collected"
+stat = "totalTokens"
+
+[node name="items" parent="." instance=ExtResource("2_0ap0a")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "items bought"
+stat = "totalShopPurchases"
+
+[node name="bullets" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "bullets fired"
+stat = "totalBulletsFired"
+
+[node name="enemies" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "enemies killed"
+stat = "totalEnemiesKilled"
+
+[node name="bosses" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "bosses killed"
+stat = "totalBossesKilled"
+
+[node name="secretDamage" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "damage taken during ???"
+stat = "ultraSmileyDamage"
+requirement = "ultraWin"
+
+[node name="winTime" parent="." instance=ExtResource("2_0ap0a")]
+layout_mode = 2
+text = "fastest win"
+stat = "winTime"
+requirement = "ultraWin"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="charList" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="upgradeList" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="itemList" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="actionList" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="actionList" type="HBoxContainer" parent="VBoxContainer/actionList"]
+layout_mode = 2
+alignment = 1
